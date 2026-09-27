@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/elite-k9-and-animal-care.html"
+    }
+  ]
+}

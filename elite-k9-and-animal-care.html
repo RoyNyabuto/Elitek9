@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite K9 and Animal Care — Dog Training, Kitengela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;800;900&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#171409;
+    --charcoal-2:#1f1b10;
+    --forest:#252f1c;
+    --forest-2:#2e3a22;
+    --sand:#e9e0c4;
+    --sand-dim:#c9bd97;
+    --clay:#a8532e;
+    --clay-bright:#c2643a;
+    --brass:#b6924a;
+    --line: rgba(233,224,196,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--charcoal);
+    color:var(--sand);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Roboto Slab', serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--sand);
+  }
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:linear-gradient(180deg, rgba(23,20,9,0.92), rgba(23,20,9,0));
+    padding:18px 0 40px;
+    transition:background .3s;
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; flex-direction:column; line-height:1;}
+  .brand .b1{font-family:'Roboto Slab',serif; font-weight:900; font-size:19px; letter-spacing:0.02em;}
+  .brand .b2{font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.18em; color:var(--brass); margin-top:4px;}
+  .navlinks{display:flex; gap:34px; font-size:14px; font-weight:500;}
+  .navlinks a{opacity:.85; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1; color:var(--clay-bright);}
+  .nav-cta{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em;
+    border:1px solid var(--brass); color:var(--sand); padding:9px 16px; border-radius:2px;
+    text-transform:uppercase;
+  }
+  .nav-cta:hover{background:var(--brass); color:var(--charcoal);}
+  @media(max-width:800px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:flex-end;
+    background:#0f0d07;
+  }
+  .hero-img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    filter:saturate(0.92) contrast(1.04);
+    opacity:0.62;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,13,7,0.35) 0%, rgba(15,13,7,0.35) 40%, rgba(15,13,7,0.96) 100%);
+  }
+  .hero-content{position:relative; z-index:2; width:100%; padding-bottom:76px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em;
+    color:var(--brass); margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--brass); display:inline-block;}
+  h1.hero-title{
+    font-size:clamp(40px, 6.4vw, 82px);
+    line-height:0.98;
+    max-width:820px;
+    text-wrap:balance;
+  }
+  h1.hero-title em{font-style:normal; color:var(--clay-bright);}
+  .hero-sub{
+    max-width:480px; margin-top:22px; font-size:16.5px; color:var(--sand-dim);
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; align-items:center;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 24px; border-radius:2px; font-weight:600; font-size:14.5px;
+    transition:transform .18s, background .18s, color .18s;
+  }
+  .btn-primary{background:var(--clay); color:var(--sand);}
+  .btn-primary:hover{background:var(--clay-bright); transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--line); color:var(--sand);}
+  .btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
+
+  .stamp{
+    position:absolute; right:28px; bottom:76px; z-index:2;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    width:112px; height:112px; border:1.5px solid var(--brass); border-radius:50%;
+    text-align:center; transform:rotate(6deg);
+  }
+  .stamp .n{font-family:'Roboto Slab',serif; font-weight:900; font-size:26px; color:var(--brass);}
+  .stamp .s{font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--sand-dim); margin-top:2px;}
+  @media(max-width:800px){ .stamp{display:none;} }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:110px 0;}
+  .scroll-reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--reveal-delay, 0ms);
+  }
+  .scroll-reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){.scroll-reveal{opacity:1; transform:none; transition:none;}}
+  .section-head{max-width:620px; margin-bottom:56px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em;
+    color:var(--clay-bright); display:block; margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(28px,3.6vw,42px); line-height:1.08;}
+  .section-head p{margin-top:16px; color:var(--sand-dim); font-size:16px; max-width:520px;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--forest);}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-copy p{color:var(--sand-dim); margin-bottom:16px; font-size:16px;}
+  .about-copy p strong{color:var(--sand); font-weight:600;}
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .chip{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    border:1px solid var(--line); padding:9px 14px; border-radius:20px; color:var(--sand-dim);
+  }
+  .id-card{
+    background:var(--charcoal-2); border:1px solid var(--line); padding:30px;
+    position:relative;
+  }
+  .id-card::before{
+    content:"CERTIFIED · HANDLER-LED"; position:absolute; top:-11px; left:26px;
+    background:var(--clay); color:var(--sand); font-family:'JetBrains Mono',monospace;
+    font-size:10px; letter-spacing:0.1em; padding:4px 10px;
+  }
+  .id-card img{width:100%; height:260px; object-fit:cover; margin-bottom:20px; filter:saturate(.95);}
+  .id-card .row{display:flex; justify-content:space-between; font-size:13px; padding:9px 0; border-top:1px solid var(--line);}
+  .id-card .row span:first-child{color:var(--sand-dim); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.services-grid{grid-template-columns:1fr;}}
+  .service{background:var(--charcoal); padding:34px 26px; transition:background .2s;}
+  .service:hover{background:var(--charcoal-2);}
+  .service .num{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--brass); letter-spacing:0.1em;}
+  .service h3{font-size:19px; margin-top:16px; margin-bottom:10px; font-weight:600; font-family:'Roboto Slab',serif;}
+  .service p{font-size:14px; color:var(--sand-dim);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{background:var(--forest);}
+  .g-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:190px; gap:10px;
+  }
+  @media(max-width:860px){.g-grid{grid-template-columns:repeat(3,1fr); grid-auto-rows:140px;}}
+  @media(max-width:560px){.g-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:130px;}}
+  .g-item{overflow:hidden; position:relative;}
+  .g-item img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .g-item:hover img{transform:scale(1.06);}
+  .g-item.tall{grid-row:span 2;}
+  .g-item::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px var(--line);}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-wrap{display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center;}
+  @media(max-width:860px){.reviews-wrap{grid-template-columns:1fr;}}
+  .rating-block{text-align:left;}
+  .rating-num{font-family:'Roboto Slab',serif; font-weight:900; font-size:74px; color:var(--sand); line-height:1;}
+  .stars{color:var(--brass); font-size:20px; letter-spacing:3px; margin:14px 0 8px;}
+  .rating-block p{color:var(--sand-dim); font-size:14px;}
+  .review-card{
+    background:var(--charcoal-2); border:1px solid var(--line); padding:28px;
+    position:relative;
+  }
+  .review-card .perf{
+    position:absolute; top:0; bottom:0; left:0; width:2px;
+    background:repeating-linear-gradient(180deg, var(--brass) 0 6px, transparent 6px 12px);
+  }
+  .review-card q{
+    display:block; font-family:'Roboto Slab',serif; font-size:19px; line-height:1.5;
+    color:var(--sand); font-style:normal; font-weight:400; margin-bottom:18px;
+  }
+  .review-meta{display:flex; justify-content:space-between; align-items:center; font-size:12px;}
+  .review-meta .who{font-family:'JetBrains Mono',monospace; letter-spacing:0.06em; color:var(--brass);}
+  .review-meta .when{color:var(--sand-dim);}
+
+  /* ---------- INFO / CONTACT ---------- */
+  .info{background:var(--charcoal-2);}
+  .info-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media(max-width:800px){.info-grid{grid-template-columns:1fr;}}
+  .info-cell{background:var(--charcoal-2); padding:36px 30px;}
+  .info-cell .mono{font-size:11px; color:var(--brass); display:block; margin-bottom:14px;}
+  .info-cell h3{font-size:20px; margin-bottom:10px; font-family:'Roboto Slab',serif; font-weight:600;}
+  .info-cell p{color:var(--sand-dim); font-size:15px; margin-bottom:6px;}
+  .info-cell a.link{color:var(--clay-bright); font-weight:600;}
+  .info-cell a.link:hover{text-decoration:underline;}
+  .hours-row{display:flex; justify-content:space-between; font-size:14px; padding:5px 0; color:var(--sand-dim);}
+  .hours-row.today{color:var(--sand); font-weight:600;}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background:var(--clay); padding:70px 0; text-align:center;
+  }
+  .cta-band h2{color:var(--charcoal); font-size:clamp(26px,4vw,40px); margin-bottom:20px;}
+  .cta-band .btn-primary{background:var(--charcoal); color:var(--sand);}
+  .cta-band .btn-primary:hover{background:#0f0d07;}
+  .cta-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .cta-band .btn-ghost{border-color:rgba(23,20,9,0.4); color:var(--charcoal);}
+  .cta-band .btn-ghost:hover{border-color:var(--charcoal);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:50px 0 40px; background:var(--charcoal);}
+  .foot-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; border-top:1px solid var(--line); padding-top:30px;}
+  .foot-brand{font-family:'Roboto Slab',serif; font-weight:800; font-size:16px;}
+  .foot-social{display:flex; gap:22px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em;}
+  .foot-social a:hover{color:var(--clay-bright);}
+  .foot-note{color:var(--sand-dim); font-size:12px; margin-top:18px; text-align:center;}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap">
+    <div class="brand">
+      <span class="b1">ELITE K9</span>
+      <span class="b2">&amp; Animal Care · Kitengela</span>
+    </div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Training</a>
+      <a href="#gallery">Field Log</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Book a session</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="hero-img" src="https://i.pinimg.com/736x/b2/86/17/b28617b2785c956c01162c35b1c48b4f.jpg" alt="Dog in training with Elite K9 and Animal Care">
+  <div class="stamp"><span class="n">4.8</span><span class="s">★ 49 REVIEWS</span></div>
+  <div class="hero-content wrap">
+    <span class="eyebrow">Kitengela, Kenya · Handler-Led Training</span>
+    <h1 class="hero-title">Discipline in the field. <em>Trust</em> at home.</h1>
+    <p class="hero-sub">One-on-one obedience, aggression rehabilitation, and puppy foundation work — raised and trained by a handler who's spent a lifetime reading dogs, not just commanding them.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Start Training</a>
+      <a class="btn btn-ghost" href="https://www.google.com/search?sa=X&sca_esv=ba78d8cb7c92e839&cs=1&hl=en-KE&q=elite+k9+and+animal+care.+kitengela+address" target="_blank" rel="noopener">Get Directions →</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="tag">01 · The Handler</span>
+      <h2 style="font-size:clamp(26px,3vw,36px); margin-bottom:22px;">Trained by someone who thinks like a dog first.</h2>
+      <p>Elite K9 and Animal Care is built on a lifelong love for dogs and a deep, practical understanding of how they think. <strong>Years of hands-on experience</strong> in obedience, general training, and aggression rehabilitation sit behind every session — the kind of instinct that only comes from genuinely connecting with the animal, not just correcting it.</p>
+      <p>Every dog that comes through — whether a nervous rescue, a boisterous puppy, or a working breed like a Caucasian Shepherd — is trained as an individual. The goal isn't a dog that performs on command. It's a dog that's genuinely easier, calmer, and safer to live with.</p>
+      <div class="chips">
+        <span class="chip">OBEDIENCE TRAINING</span>
+        <span class="chip">AGGRESSION REHAB</span>
+        <span class="chip">PUPPY FOUNDATIONS</span>
+        <span class="chip">BOARD &amp; RAISE</span>
+      </div>
+    </div>
+    <div class="id-card">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczM9-74KSQSbOJ8lDRqdgYP3oIcsnisV_LE8G5bx-JI7KkoiZru7b_TLs-YOoc1WLUkVfIYuFG50Xe2b52SEekBXMYPXBL7tjDx7IJslod8nEofZ6A=w900" alt="Trained dog at Elite K9 and Animal Care">
+      <div class="row"><span>SERVING</span><span>Kitengela &amp; nearby areas</span></div>
+      <div class="row"><span>SPECIALTY</span><span>Obedience &amp; Aggression</span></div>
+      <div class="row"><span>RATING</span><span>4.8 / 5 · 49 reviews</span></div>
+      <div class="row"><span>STATUS</span><span>Open today · closes 7pm</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">02 · Programs</span>
+      <h2>Training built around the dog in front of us.</h2>
+      <p>Every program starts with an assessment — temperament, history, and what the household actually needs day to day.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="services-grid">
+      <div class="service">
+        <span class="num mono">01</span>
+        <h3>Obedience Training</h3>
+        <p>Sit, stay, recall, and leash manners built through consistent, calm repetition — for puppies and adult dogs alike.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">02</span>
+        <h3>Aggression &amp; Behavior Rehab</h3>
+        <p>Structured, patient work with reactive or aggressive dogs, focused on rebuilding trust and control.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">03</span>
+        <h3>Puppy Foundations</h3>
+        <p>Early socialization, house training, and bite inhibition — setting the tone before habits set in.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">04</span>
+        <h3>Board &amp; Raise</h3>
+        <p>Full-time care and training for dogs raised from puppyhood, with regular updates for the owner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">03 · Field Log</span>
+      <h2>Recent sessions.</h2>
+      <p>A look at the dogs currently in training — from first assessment to finished obedience work.</p>
+    </div>
+    <div class="g-grid">
+      <div class="g-item tall"><img src="https://lh3.googleusercontent.com/pw/AP1GczOe8nNr3bBBu_c-qv8iYHTiSJ5xeR750SbpIEwyQI8LSz0NH-UpwsKnih4RCRumVE_ae4RDDRzvBq865rZ22XBUo02vsb-3NRHPseTaF-PQFlHi3g=w900" alt="Dog training session"></div>
+      <div class="g-item"><img src="https://lh3.googleusercontent.com/pw/AP1GczO7y4-FYu0nWMwJ1KBNKypfvWAgI_2AaYXc87kTJ2oNhdrWgz6p2pN_NfJcvMW8ppElhUMHlaEJe7k-FoxbuTvXU0ZlKt0fyXiAoofk-HjtamPjPw=w700" alt="Dog at Elite K9"></div>
+      <div class="g-item"><img src="https://lh3.googleusercontent.com/pw/AP1GczOEurh4pU9PNMZvuly-OEIBP_thiiy41a0jGvRKdmt0CJdHWc5pCKii8QdHYdvdManPyZLfWISba3R78qYg8nw3tEV_ZnCwd7Mnep3vXVjrcihtFw=w700" alt="Dog training in Kitengela"></div>
+      <div class="g-item tall"><img src="https://lh3.googleusercontent.com/pw/AP1GczNOKhSYYslaN4cqoV7sZNE6goSN8SWw41tq04HWq1nL8FZe7s5ajxXHM6QS6UvEKzNly8cVbYB6miCxHzU9vIAFw-ouEZ58m1HAv8t9DJ-r-fZCag=w900" alt="Trained dog"></div>
+      <div class="g-item"><img src="https://lh3.googleusercontent.com/pw/AP1GczOD-zOOFh4B6tt4RC4XjkFyBdXh6Rol5-EqXeUfK-5sQN4qkY_dQmDmujN6dOYDRatR1GEYFcbgvA80eQztC3rdhRCaLuEBPFyHrqTKTB4_rYv-6Q=w700" alt="Elite K9 client dog"></div>
+      <div class="g-item"><img src="https://lh3.googleusercontent.com/pw/AP1GczPYVVFg9QSuiCRGP1mcVFq2x6sWCUgT8cyM_Dvt7J2zfRGubWfFVvyFXLHNX4QEE1mPnEsrx4UjYR2WuY3Vi8aT9A4QrZ59_P1ff4u0a-J-9Q10mQ=w700" alt="Dog obedience training"></div>
+      <div class="g-item"><img src="https://lh3.googleusercontent.com/pw/AP1GczMlFTPqiqJOAlri5SGJxSMB5ocIOtjsvh6TlCeVy2_k3OcRPSKFA-zdevxajQWVEycv9QymSY0e9kyETiY3vsx_UTHwWS7Vjsx7B9osyQlJn8Tpfg=w700" alt="Dog in field training"></div>
+      <div class="g-item"><img src="https://lh3.googleusercontent.com/pw/AP1GczPDvs56unUbT-1NwS8Y6d7xPswHm8DCuU3Hmv0zdpSIqI2lYZHChEusQ3Oby25MXC8mLL6SIZL89fPkKStS-7k86IsTPSl3Hqe3dQgwsxJuG0_HEA=w700" alt="Dog at Elite K9 and Animal Care Kitengela"></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap reviews-wrap">
+    <div class="rating-block">
+      <span class="tag">04 · Word of Mouth</span>
+      <div class="rating-num">4.8</div>
+      <div class="stars">★★★★★</div>
+      <p>Based on 49 Google reviews from clients across Kitengela and beyond.</p>
+    </div>
+    <div class="review-card">
+      <div class="perf"></div>
+      <q>A Caucasian Shepherd named Loky, raised and trained from a puppy for a client — a proud example of the board-and-raise program in action.</q>
+      <div class="review-meta">
+        <span class="who">GOOGLE REVIEW</span>
+        <span class="when">Jul 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="cta">
+  <div class="wrap">
+    <h2>Ready to see the difference training makes?</h2>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="https://www.instagram.com/elitek9andanimalcare/" target="_blank" rel="noopener">Message on Instagram</a>
+      <a class="btn btn-ghost" href="https://www.tiktok.com/@gdtelitek9andanimalcare" target="_blank" rel="noopener">Watch on TikTok</a>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">05 · Visit / Reach Us</span>
+      <h2>Kitengela, on Balozi Road.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-cell">
+        <span class="mono">LOCATION</span>
+        <h3>Balozi Road</h3>
+        <p>Kitengela, Kenya</p>
+        <a class="link" href="https://www.google.com/search?sa=X&sca_esv=ba78d8cb7c92e839&cs=1&hl=en-KE&q=elite+k9+and+animal+care.+kitengela+address" target="_blank" rel="noopener">Get directions →</a>
+      </div>
+      <div class="info-cell">
+        <span class="mono">HOURS</span>
+        <h3>Open today</h3>
+        <div class="hours-row today"><span>Today</span><span>Closes 7:00 PM</span></div>
+        <p style="margin-top:10px; font-size:13px;">Hours may vary — message ahead to confirm a slot.</p>
+      </div>
+      <div class="info-cell">
+        <span class="mono">AREAS SERVED</span>
+        <h3>Kitengela &amp; nearby</h3>
+        <p>In-home and on-site sessions across Kitengela and the surrounding area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">ELITE K9 &amp; ANIMAL CARE</div>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/elitek9andanimalcare/" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.tiktok.com/@gdtelitek9andanimalcare" target="_blank" rel="noopener">TIKTOK</a>
+        <a href="#top">BACK TO TOP ↑</a>
+      </div>
+    </div>
+    <p class="foot-note">Elite K9 and Animal Care · Kitengela, Kenya · 4.8★ (49 Google reviews)</p>
+  </div>
+</footer>
+
+<script>
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    const groups = document.querySelectorAll('.services-grid, .g-grid, .info-grid');
+    groups.forEach(group => {
+      Array.from(group.children).forEach((item, index) => {
+        item.classList.add('scroll-reveal');
+        item.style.setProperty('--reveal-delay', `${Math.min(index, 5) * 70}ms`);
+        observer.observe(item);
+      });
+    });
+
+    document.querySelectorAll('.about-grid, #services .section-head, #gallery .section-head, .reviews-wrap, .cta-band .wrap, #contact .section-head').forEach(item => {
+      item.classList.add('scroll-reveal');
+      observer.observe(item);
+    });
+  }
+</script>
+</body>
+</html>
